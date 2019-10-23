@@ -23,3 +23,12 @@ module.exports = function palindrome(str) {
 
   return str === reversedStr;
 }
+
+
+// Using the array every method
+
+// module.exports = function palindrome(str) {
+//   return str
+//     .split('')
+//     .every((char, i, arr) => char === arr[arr.length - i - 1]);
+// }
