@@ -1,13 +1,10 @@
-/**
- * Instructions:
- * 
- * Given a string, return a new string with the reversed order of characters.
- * 
- * -- Example --
- * reverse('apple') === 'elppa'
- * reverse(''hello') === 'olleh'
- * 
- */
+// --- Directions
+// Given a string, return a new string with the reversed
+// order of characters
+// --- Examples
+//   reverse('apple') === 'leppa'
+//   reverse('hello') === 'olleh'
+//   reverse('Greetings!') === '!sgniteerG'
 
 
 
