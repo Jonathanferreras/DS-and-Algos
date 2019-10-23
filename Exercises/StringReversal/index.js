@@ -28,6 +28,39 @@ module.exports = function reverse(str) {
   return reversedString;
 }
 
+
 /**
  * Other implementations
  */
+
+
+// Using array method 'reverse'
+
+// module.exports = function reverse(str)  {
+//   return str
+//     .split('')
+//     .reverse()
+//     .join('');
+// }
+
+
+// Using for-of loop
+
+// module.exports = function reverse(str) {
+//   let reversedString = '';
+
+//   for(let char of str) {
+//     reversedString = char + reversedString;
+//   }
+
+//   return reversedString;
+// }
+
+
+// Using array reduce method
+
+// module.exports = function reverse(str) {
+//   return str
+//     .split('')
+//     .reduce((reversedString, char) => char + reversedString, '');
+// }
