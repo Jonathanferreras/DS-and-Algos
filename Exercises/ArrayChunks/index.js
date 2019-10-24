@@ -31,3 +31,40 @@ module.exports = function arrayChunks(arr, chunkSize) {
 
   return chunks;
 }
+
+
+/**
+ * Other implementations
+ */
+
+// module.exports = function arrayChunks(arr, chunkSize) {
+//   const chunks = [];
+
+//   for(let item of arr) {
+//     const last = chunks[chunks.length - 1];
+
+//     if(!last || last.length === chunkSize) {
+//       chunks.push([item]);
+//     }
+//     else {
+//       last.push(item);
+//     }
+//   }
+
+//   return chunks;
+// }
+
+
+// Using slice method
+
+// module.exports = function arrayChunks(arr, chunkSize) {
+//   const chunks = [];
+//   let index = 0;
+
+//   while(index < arr.length) {
+//     chunks.push(arr.slice(index, index + chunkSize));
+//     index += chunkSize;
+//   }
+
+//   return chunks;
+// }
