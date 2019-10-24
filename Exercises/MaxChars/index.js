@@ -11,13 +11,12 @@
 
 module.exports = function maxChars(str) {
   let charMap = {};
+  let maxNum = 0;
+  let maxChar = '';
 
   for(let char of str) {
     charMap[char] = charMap[char] + 1 || 1;
   }
-
-  let maxNum = 0;
-  let maxChar = '';
 
   for(let char in charMap) {
     let num = charMap[char];
