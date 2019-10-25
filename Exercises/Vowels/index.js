@@ -16,11 +16,24 @@ module.exports = function getVowels(str) {
   const vowels = 'aeiou';
   let count = 0;
 
-  for(let char of str.split('')) {
-    if(vowels.includes(char.toLowerCase())) {
-      count += 1;
+  for(let char of str.toLowerCase()) {
+    if(vowels.includes(char)) {
+      count++;
     }
   }
 
   return count;
 }
+
+
+/**
+ * Other implementations
+ */
+
+// Using regex
+
+// module.exports = function getVowels(str) {
+//   const matches = str.match(/[aeiou]/gi);
+
+//   return matches ? matches.length : 0;
+// }
