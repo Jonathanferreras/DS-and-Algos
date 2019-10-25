@@ -16,7 +16,7 @@
 
 
 /**
- * My implementation
+ * My inital implementation
  */
 
 module.exports = function pyramid(n) {
@@ -27,18 +27,18 @@ module.exports = function pyramid(n) {
   const mid = Math.floor(totalCols / 2);
 
   for(let row = 0; row < n; row++) {
-    let stair = '';
+    let level = '';
 
     for(let col = 0; col < totalCols; col++) {
-      if (col < mid - row || col > mid + row) {
-        stair += ' ';
+      if (col < mid - row || mid + row < col) {
+        level += ' ';
       } 
       else {
-        stair += '#';
+        level += '#';
       }
     }
 
-    console.log(stair);
+    console.log(level);
   }
 }
 
@@ -46,3 +46,30 @@ module.exports = function pyramid(n) {
 /**
  * Other implemetations
  */
+
+
+// Using recursion
+
+// module.exports = function pyramid(n, row = 0, level = '') {
+//   if(n === row) {
+//     return;
+//   }
+
+//   const totalCols = 2 * n - 1;
+//   const mid = Math.floor(totalCols / 2);
+
+//   if(totalCols === level.length) {
+//     console.log(level)
+//     return pyramid(n, row + 1);
+//   }
+
+
+//   if(level.length < mid - row || level.length > mid + row){
+//     level += ' ';
+//   } 
+//   else {
+//     level += '#';
+//   }
+
+//   pyramid(n, row, level);
+// }
