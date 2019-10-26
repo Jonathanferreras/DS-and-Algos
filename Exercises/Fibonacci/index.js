@@ -15,18 +15,18 @@
  */
 
 
-module.exports = function fibonacci(n) {
-  // we start from 1 because 0 and 1 are the first two in the seq
-  // the next number is based on the previous number and the one before that one
+// module.exports = function fibonacci(n) {
+//   // we start from 1 because 0 and 1 are the first two in the seq
+//   // the next number is based on the previous number and the one before that one
 
-  let seq = [0, 1];
+//   let seq = [0, 1];
 
-  for(let i = 1; i < n; i++) {
-    seq.push(seq[i] + seq[i-1])
-  }
+//   for(let i = 1; i < n; i++) {
+//     seq.push(seq[i] + seq[i-1])
+//   }
 
-  return seq[n]
-}
+//   return seq[n]
+// }
 
 
 /**
@@ -62,3 +62,36 @@ module.exports = function fibonacci(n) {
 
 //   return fibonacci(n - 1) + fibonacci(n - 2);
 // }
+
+
+// Using recursion with memoization
+
+
+function fibonacci(n) {
+  if (n < 2) {
+    return n;
+  }
+
+  return memoizedFibonacci(n - 1) + memoizedFibonacci(n - 2);
+}
+
+function memoize(fn) {
+  const cache = {};
+  
+  return function(...args) {
+    if (cache[args]) {
+      return cache[args];
+    }
+
+    const result = fn.apply(this, args);
+    cache[args] = result;
+
+    return result;
+  };
+}
+
+// NOTE: you want to call the memoized version of fib
+
+const memoizedFibonacci = memoize(fibonacci)
+
+module.exports = memoizedFibonacci;
