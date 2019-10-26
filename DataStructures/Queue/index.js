@@ -22,7 +22,7 @@ module.exports = class Queue {
     this.queue.unshift(item);
   }
 
-  remove(item) {
-    return this.queue.pop(item);
+  remove() {
+    return this.queue.pop();
   }
 }
