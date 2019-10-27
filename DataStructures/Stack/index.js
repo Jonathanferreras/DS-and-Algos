@@ -21,15 +21,15 @@ module.exports = class Stack {
   }
 
   push(item) {
-    this.stack.unshift(item);
+    this.stack.push(item);
   }
 
   pop() {
-    return this.stack.shift();
+    return this.stack.pop();
   }
 
   peek() {
-    return this.stack[0];
+    return this.stack[this.stack.length - 1];
   }
 
 }
