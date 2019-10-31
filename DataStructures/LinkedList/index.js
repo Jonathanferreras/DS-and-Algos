@@ -78,6 +78,7 @@ class LinkedList {
   }
 
   insertLast(data) {
+    // My implementation
     if(!this.head) {
       this.head = new Node(data, this.head);
       return;
@@ -92,6 +93,16 @@ class LinkedList {
       }
       node = node.next
     }
+
+    //other implementation
+    // const last = this.getLast();
+
+    // if(last) {
+    //   last.next = new Node(data);
+    // }
+    // else {
+    //   this.head = new Node(data);
+    // }
   }
 
   getAt(position) {
