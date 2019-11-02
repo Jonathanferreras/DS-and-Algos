@@ -192,6 +192,24 @@ class LinkedList {
       beforeTarget.next = node;
       node.next = savedNode;
     }
+
+    /**
+     * Other implementation
+     */
+
+    // if(!this.head) {
+    //   this.head = new Node(data);
+    //   return;
+    // }
+
+    // if(position === 0) {
+    //   this.head = new Node(data, this.head);
+    //   return;
+    // }
+
+    // const prevNode = this.getAt(position - 1) || this.getLast();
+    // const node = new Node(data, prevNode.next);
+    // prevNode.next = node;
   }
 
   forEach(fn) {}
