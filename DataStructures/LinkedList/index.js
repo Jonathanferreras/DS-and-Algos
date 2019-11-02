@@ -211,8 +211,6 @@ class LinkedList {
     // const node = new Node(data, prevNode.next);
     // prevNode.next = node;
   }
-
-  forEach(fn) {}
 }
 
 module.exports = {
