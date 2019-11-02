@@ -122,34 +122,63 @@ class LinkedList {
   }
 
   removeAt(position) {
+    // get position before position we want to remove
+    // if not null then check to see if next node is not null
+    // if not null, then  grab the node ahead of that one
+    /**
+     * My attempted implementation
+     */
+    // let node = this.getAt(position - 1);
+
+    // if(!node) {
+    //   return;
+    // }
+
+    // if(!node.next) {
+    //   return;
+    // }
+
+    // node.next = node.next.next;
+
+
+    /**
+     * other implemetation
+     */
     if(!this.head) {
       return;
     }
 
-    if (!this.head.next) {
-      this.head = null;
+    if(position === 0) {
+      this.head = this.head.next;
       return;
     }
 
-    let counter = 0;
-    let prev = this.head;
-    let node = this.head.next;
-    let next = node.next || null;
-
-    while(node) {
-      if(counter === position) {
-        prev.next = next;
-        return;
-      }
-
-      counter++;
-      prev = node;
-      node = node.next;
-      next = node.next;
+    const before = this.getAt(position - 1);
+    if(!before || !before.next) {
+      return;
     }
+
+    before.next = before.next.next;
   }
 
-  insertAt(data, position) {}
+  insertAt(data, position) {
+    let node = new Node(data);
+
+    if(!this.head) {
+      this.head = node;
+      return;
+    }
+
+    let prevNode = this.getAt(position - 1);
+
+    if(!prevNode.next) {
+      prevNode.next = node;
+    }
+
+    const save = prevNode.next;
+    prevNode.next = node;
+    prevNode.next.next = save;
+  }
 
   forEach(fn) {}
 }
