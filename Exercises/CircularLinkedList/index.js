@@ -30,7 +30,7 @@ module.exports = function isCircular(list) {
     slow = slow.next;
     fast = fast.next.next
 
-    if(slow.data === fast.data) {
+    if(slow === fast) {
         return true;
     }
   }
