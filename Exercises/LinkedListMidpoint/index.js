@@ -23,13 +23,11 @@ module.exports = function midpoint(list) {
   // point fast to every other node at a time if those nodes exist
   let slow = list.head;
   let fast = list.head;
-  let mid = slow;
 
   while(fast.next && fast.next.next) {
     fast = fast.next.next
     slow = slow.next
-    mid = slow;
   }
 
-  return mid;
+  return slow;
 }
