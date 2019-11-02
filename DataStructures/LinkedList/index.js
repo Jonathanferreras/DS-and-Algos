@@ -162,22 +162,36 @@ class LinkedList {
   }
 
   insertAt(data, position) {
+    /**
+     * My initial implementation
+     */
     let node = new Node(data);
 
+    //if empty list, add a node
     if(!this.head) {
       this.head = node;
       return;
     }
 
-    let prevNode = this.getAt(position - 1);
-
-    if(!prevNode.next) {
-      prevNode.next = node;
+    // if node needs to be added in front while list has elements
+    if(this.head && this.head.next && position === 0) {
+      node.next = this.head;
+      this.head = node;
     }
 
-    const save = prevNode.next;
-    prevNode.next = node;
-    prevNode.next.next = save;
+    // get node before desired position, if it doesn't exist then  desired position is out of bounds
+    let beforeTarget = this.getAt(position - 1);
+
+    if(!beforeTarget || !beforeTarget.next) {
+      this.insertLast(data);
+      return;
+    }
+
+    if(beforeTarget.next) {
+      let savedNode = beforeTarget.next;
+      beforeTarget.next = node;
+      node.next = savedNode;
+    }
   }
 
   forEach(fn) {}
