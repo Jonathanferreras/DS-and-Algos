@@ -26,12 +26,27 @@ module.exports = class Node {
     else if(data < this.data) {
       this.left = new Node(data);
     }
-    else if(data > this.data & this.right) {
+    else if(data > this.data && this.right) {
       this.right.insert(data);
     }
     else if(data > this.data) {
       this.right = new Node(data);
     }
+  }
+
+  contains(value) {
+    if(value === this.data) {
+      return this;
+    }
+    
+    if (value < this.data && this.left) {
+      return this.left.contains(value);
+    }
+    else if (value > this.data && this.right) {
+      return this.right.contains(value);
+    }
+
+    return null;
   }
 }
 
